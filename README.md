@@ -22,6 +22,7 @@
 3. [IINA](https://iina.io/)
 4. [iTerm2](https://www.iterm2.com/)
 5. [Nerd Font](https://www.nerdfonts.com/)
+6. [vscode](https://code.visualstudio.com/)
 
 ### generate ssh key
 
@@ -31,4 +32,145 @@ ssh-keygen -t rsa -C "example@github.com"
 
 ### install command line tool
 
+```bash
+brew install   git \
+               wget \
+               nvim \
+               
+               
+```
 
+### config 
+
+####  启动三指拖移
+
+系统偏好设置->辅助功能->指针控制->触控板选项->启动拖移(三指拖移)
+
+#### 设置命令行打开vscode
+
+打开 `VS Code`，打开控制面板`(⇧⌘P)`,输入 `"shell command"`，在提示里看到 `Shell Command: Install 'code' command in PATH`，运行它就可以了。
+本质就是创建了软连接`/usr/local/bin/code -> /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`
+
+或者手动把下面的配置添加在 `.zshrc`或者`.bashrc` 文件里：
+
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+之后就可以在终端中输入 `code .`，使用 `VSCode` 打开当前文件夹。
+或者直接使用 `code filename` 编辑文件。
+
+#### iTerm2
+
+1. 配色安装
+
+```bash
+mkdir ~/.iterm2 && cd ~/.iterm2
+
+git clone https://github.com/mbadolato/iTerm2-Color-Schemes
+```
+
+iTerm2->Preferences->Profiles->Colors->Color Presets->Import->导入iTerm2-Color-Schemes->schemes全部
+
+2. 设置字体
+
+iTerm2->Preferences->Profiles->Text-->选上Use a different font for non-ASCII text,然后更换字体为`Hack Nerd Font`
+
+### zsh oh-my-zsh
+
+>参考
+>https://blog.biezhi.me/2018/11/build-a-beautiful-mac-terminal-environment.html
+
+macOS自带了很多shell，我们可以通过如下命令查看有哪些
+
+```bash
+cat /etc/shells
+```
+
+bash是mac中terminal自带的shell，把它换成zsh，这个的功能要多得多。拥有语法高亮，命令行tab补全，自动提示符，显示Git仓库状态等功能。
+
+使用下面命令设置默认shell：
+
+```bash
+sudo chsh -s /bin/zsh
+```
+
+如果提示chsh:no changes made 解决办法：终端输入： 
+
+```bash
+dscl . -read /Users/$USER/ UserShell 
+exec su - $USER 
+```
+
+执行如下命令可以检查是否配置成功：
+
+ ```bash
+ echo $SHELL
+ ```
+
+**可能需要重启系统**
+
+安装oh-my-zsh [https://github.com/ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+
+```bash
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+**安装 oh-my-zsh插件管理工具 Zinit**
+
+一键安装 Zinit
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+```
+
+**安装powerlevel10k主题**
+
+```bash
+brew install romkatv/powerlevel10k/powerlevel10k
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+```
+
+OR
+
+```bash
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
+
+
+#### config shell script
+
+```bash
+#!/bin/zsh
+echo "创建tmux配置文件软连接"
+ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/tmux/.tmux.conf.local ~/.tmux.conf.local
+# 判断是否正确执行
+if [ $? -eq 0 ]; then
+     echo "创建tmux配置文件软连接 成功"
+else
+     echo "创建tmux配置文件软连接 失败"
+fi
+
+echo "创建nvim配置文件软连接"
+mkdir -p ~/.config/nvim/
+ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/
+if [ $? -eq 0 ]; then
+     echo "创建nvim配置文件软连接 成功"
+else
+     echo "创建nvim配置文件软连接 失败"
+fi
+
+echo "创建p10k配置文件软连接"
+ln -s ~/dotfiles/p10k.zsh ~/.p10k.zsh
+if [ $? -eq 0 ]; then
+     echo "创建p10k配置文件软连接 成功"
+else
+     echo "创建p10k配置文件软连接 失败"
+fi
+# 设置配置生效
+echo 'source ~/.p10k.zsh
+ZSH_THEME="powerlevel10k/powerlevel10k"'
+
+# 加载zsh配置
+echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
+```
