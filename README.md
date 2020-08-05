@@ -24,6 +24,9 @@
 5. [Nerd Font](https://www.nerdfonts.com/)
 6. [vscode](https://code.visualstudio.com/)
 7. [Go2Shell](http://zipzapmac.com/Go2Shell)
+8. [docker]
+9. [Mos]
+
 
 ### generate ssh key
 
@@ -38,17 +41,30 @@ gem install colorls
 brew install   git \
                wget \
                nvim \
-               
+               rmtrash \
+               python3 \
+               autojump
                
 ```
 
 ### config 
 
+#### 安装 neovim 插件管理器 vim-plug
+
+https://github.com/junegunn/vim-plug
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
 ####  启动三指拖移
 
 系统偏好设置->辅助功能->指针控制->触控板选项->启动拖移(三指拖移)
 
-#### 设置命令行打开vscode
+#### 设置vscode
+
+**命令行打开**
 
 打开 `VS Code`，打开控制面板`(⇧⌘P)`,输入 `"shell command"`，在提示里看到 `Shell Command: Install 'code' command in PATH`，运行它就可以了。
 本质就是创建了软连接`/usr/local/bin/code -> /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`
@@ -58,6 +74,22 @@ brew install   git \
 export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 之后就可以在终端中输入 `code .`，使用 `VSCode` 打开当前文件夹。
 或者直接使用 `code filename` 编辑文件。
+
+**Font**
+
+Hack Nerd Font
+
+**插件**
+
+1. Atom One Dark Theme
+2. Go
+3. Go Mod Grapher
+4. Markdown Preview Enhanced
+5. Markdown TOC
+6. markdownlint
+7. Material Icon Theme
+8. PicGo
+9. vscode-proto3
 
 #### iTerm2
 
