@@ -167,9 +167,6 @@ if [ $? -eq 0 ]; then
 else
      echo "创建p10k配置文件软连接 失败"
 fi
-# 设置配置生效
-echo 'source ~/.p10k.zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"'
 
 # 加载zsh配置
 echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
