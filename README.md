@@ -23,6 +23,7 @@
 4. [iTerm2](https://www.iterm2.com/)
 5. [Nerd Font](https://www.nerdfonts.com/)
 6. [vscode](https://code.visualstudio.com/)
+7. [Go2Shell](http://zipzapmac.com/Go2Shell)
 
 ### generate ssh key
 
