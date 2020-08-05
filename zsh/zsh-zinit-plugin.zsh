@@ -11,3 +11,5 @@ zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 zstyle ':completion:*:complete:*' cache-path "${HOME}/.zcompdump"
 #
+# p10k oh-my-zsh主题
+zinit ice depth=1; zinit light romkatv/powerlevel10k
