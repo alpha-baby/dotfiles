@@ -4,7 +4,7 @@ alias ls="colorls"
 alias ll="ls -al"
 alias nv="nvim"
 alias snv="sudo nvim"
-alias vscode="/Applications/vscode.app/Contents/Resources/app/bin/code"
+alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias rm='rmtrash'
 alias grep='grep --color=auto -in'
 
