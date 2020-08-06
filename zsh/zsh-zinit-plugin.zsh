@@ -6,6 +6,10 @@ zinit light zdharma/fast-syntax-highlighting
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
+# git-open 插件
+zinit as"null" wait"1" lucid for \
+    sbin    cloneopts paulirish/git-open 
+    
 # 补全
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
