@@ -43,8 +43,11 @@ brew install   git \
                nvim \
                rmtrash \
                python3 \
-               autojump
-               
+               autojump \
+               tmux \
+               htop \
+               tree \
+               neofetch
 ```
 
 ### config 
@@ -172,6 +175,8 @@ Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
 
 
 #### config shell script
+
+**macOS_install.sh**
 
 ```bash
 #!/bin/zsh
