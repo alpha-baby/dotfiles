@@ -12,6 +12,7 @@
 3. [firefox](https://www.mozilla.org/zh-CN/firefox/new/?redirect_source=firefox-com)
 4. [v2ray](https://github.com/v2ray/v2ray-core/releases)
 5. [Nerd Font](https://www.nerdfonts.com/)
+6. [burpsuite] [mac安装](https://www.sqlsec.com/2019/11/macbp.html) [破解](https://www.jianshu.com/p/3224c2308ffa)
 
 ## macOS
 
@@ -26,7 +27,8 @@
 7. [Go2Shell](http://zipzapmac.com/Go2Shell)
 8. [docker]
 9. [Mos]
-
+10. [iRightMouse] AppStore
+11. [nvm] nodejs多版本管理工具，安装脚本`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash`
 
 ### generate ssh key
 
@@ -47,7 +49,8 @@ brew install   git \
                tmux \
                htop \
                tree \
-               neofetch
+               neofetch \
+               speedtest-cli
 ```
 
 ### config 
@@ -109,6 +112,13 @@ iTerm2->Preferences->Profiles->Colors->Color Presets->Import->导入iTerm2-Color
 2. 设置字体
 
 iTerm2->Preferences->Profiles->Text-->选上Use a different font for non-ASCII text,然后更换字体为`Hack Nerd Font`
+
+
+3. 设置热键 双击contrl打开iterm2
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmmvpbi23j30z60cywjs.jpg)
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmn0fuxwhj30w40k0qhq.jpg)
 
 ### zsh oh-my-zsh
 
