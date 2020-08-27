@@ -29,6 +29,7 @@
 9. [Mos]
 10. [iRightMouse] AppStore
 11. [nvm] nodejs多版本管理工具，安装脚本`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash`
+12. [g] golang多版本管理工具，安装脚本`curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash`
 
 ### generate ssh key
 
@@ -50,7 +51,8 @@ brew install   git \
                htop \
                tree \
                neofetch \
-               speedtest-cli
+               speedtest-cli \
+               cloc
 ```
 
 ### config 
@@ -183,6 +185,14 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$H
 
 Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
 
+### node tools
+
+#### reveal.js
+
+```bash
+npm install -g reveal.js
+``
+
 
 #### config shell script
 
@@ -220,3 +230,4 @@ fi
 # 加载zsh配置
 echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
 ```
+

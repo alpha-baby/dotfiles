@@ -1,8 +1,14 @@
 # golang path
-export GOROOT=/usr/local/go/go1.12.14
+# export GOROOT=/usr/local/go/go1.12.14
 export GOPATH=~/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# export GOBIN=$GOPATH/bin
+#export PATH=$PATH:$GOROOT/bin
+
+# g verison manager
+export GOROOT="${HOME}/.g/go"
+export PATH="${HOME}/.g/go/bin:$PATH"
+export G_MIRROR=https://golang.google.cn/dl/
+unalias g
 
 function golist() {
     /bin/ls -al /usr/local/go/ |awk  -F ' '  '{print $9}' | /usr/bin/grep -e '^\w'
@@ -15,7 +21,10 @@ export PATH=/Applications/vscode.app/Contents/Resources/app/bin:$PATH
 
 
 # java 
-export CATALINA_HOME=/usr/local/apache-tomcat-9.0.27
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
+export CLASS_PATH=$JAVA_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+export CATALINA_HOME=$HOME/java/apache-tomcat-8.5.47
 export PATH=$PATH:$CATALINA_HOME/bin
 
 export PATH="/usr/local/sbin:$PATH"

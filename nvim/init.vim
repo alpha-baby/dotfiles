@@ -102,7 +102,11 @@ map tj :-tabnext<CR>
 " vim 插件
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
+
+" colorschech
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'connorholyday/vim-snazzy'
+Plug 'arcticicestudio/nord-vim'
 
 " devlop tool
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -151,8 +155,15 @@ Plug 'kshenoy/vim-signature'
 call plug#end()
 
 
-let g:SnazzyTransparent = 1
-color snazzy
+" let g:SnazzyTransparent = 1
+" color snazzy
+" let g:neodark#background = '#202020'
+" let g:neodark#use_256color = 0 " default: 0
+" let g:neodark#terminal_transparent = 0 " default: 0
+" let g:neodark#solid_vertsplit = 1 " default: 0
+let g:lightline = {}
+let g:lightline.colorscheme = 'nord'
+colorscheme nord
 
 " vim-plug 加入插件 defx, defx-icons
 if has('nvim')
@@ -176,11 +187,11 @@ nnoremap <silent> <localleader>a
 " === NERDTree
 " ===
 map tt :NERDTreeToggle<CR>
-let NERDTreeMapOpenExpl = "a"
+let NERDTreeMapOpenExpl = "e"
 "let NERDTreeMapUpdir = ""
 " let NERDTreeMapUpdirKeepOpen = "l"
 let NERDTreeMapOpenSplit = "b"
-"" let NERDTreeOpenVSplit = ""
+" let NERDTreeOpenVSplit = ""
 "let NERDTreeMapActivateNode = "o"
 "" let NERDTreeMapOpenInTab = ""
 "" let NERDTreeMapPreview = ""
