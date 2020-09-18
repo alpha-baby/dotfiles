@@ -52,7 +52,9 @@ brew install   git \
                tree \
                neofetch \
                speedtest-cli \
-               cloc
+               cloc \
+               md5sha1sum \
+               telnet
 ```
 
 ### config 
