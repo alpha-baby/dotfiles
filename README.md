@@ -14,6 +14,15 @@
 5. [Nerd Font](https://www.nerdfonts.com/)
 6. [burpsuite] [mac安装](https://www.sqlsec.com/2019/11/macbp.html) [破解](https://www.jianshu.com/p/3224c2308ffa)
 
+## docker centos7
+
+### Dockerfile
+
+```dockerfile
+FROM centos:7.8.2003
+
+```
+
 ## macOS
 
 ### tool for mac

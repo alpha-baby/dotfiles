@@ -107,6 +107,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'connorholyday/vim-snazzy'
 Plug 'arcticicestudio/nord-vim'
+Plug 'theniceboy/vim-deus'
 
 " devlop tool
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -161,9 +162,10 @@ call plug#end()
 " let g:neodark#use_256color = 0 " default: 0
 " let g:neodark#terminal_transparent = 0 " default: 0
 " let g:neodark#solid_vertsplit = 1 " default: 0
-let g:lightline = {}
-let g:lightline.colorscheme = 'nord'
-colorscheme nord
+" let g:lightline = {}
+" let g:lightline.colorscheme = 'nord'
+" colorscheme nord
+colorscheme deus
 
 " vim-plug 加入插件 defx, defx-icons
 if has('nvim')
