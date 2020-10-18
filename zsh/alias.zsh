@@ -1,13 +1,17 @@
 alias sudo='sudo '
 alias tnew="tmux new -s"
-alias ls="colorls"
 alias ll="ls -al"
 alias nv="nvim"
 alias snv="sudo nvim"
 alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-alias rm='rmtrash'
 alias grep='grep --color=auto -in'
-
+# autojump config
+#! /bin/sh
+if["$(uname)"=="Darwin"];then
+# Mac OS X 操作系统
+alias ls="colorls"
+alias rm='rmtrash'
+fi
 
 # proxy network
 alias v2ray='export http_proxy="127.0.0.1:8001" && export https_proxy="127.0.0.1:8001" && export all_proxy="127.0.0.1:8001"'
