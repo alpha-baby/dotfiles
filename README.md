@@ -133,6 +133,8 @@ iTerm2->Preferences->Profiles->Text-->选上Use a different font for non-ASCII t
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghmn0fuxwhj30w40k0qhq.jpg)
 
+> 参考 https://blog.csdn.net/wujunlei1595848/article/details/93880506
+
 ### zsh oh-my-zsh
 
 >参考

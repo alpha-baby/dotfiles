@@ -123,6 +123,7 @@ Plug 'mbbill/undotree/'
 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 
 " Git
 Plug 'rhysd/conflict-marker.vim'
@@ -201,6 +202,13 @@ let NERDTreeMapOpenSplit = "b"
 "" let NERDTreeMapChangeRoot = "y"
 "" let g:NERDTreeHidden=0
 
+" ==
+" == indentLine
+" ==
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indent_guides_enable_on_vim_startup = 1
+" hi IndentGuidesOdd  ctermbg=white
+" hi IndentGuidesEven ctermbg=lightgrey
 
 " ==
 " == NERDTree-git
