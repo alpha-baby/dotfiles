@@ -7,7 +7,7 @@ alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
 alias grep='grep --color=auto -in'
 # autojump config
 #! /bin/sh
-if["$(uname)"=="Darwin"];then
+if [ "$(uname)"=="Darwin" ]; then
 # Mac OS X 操作系统
 alias ls="colorls"
 alias rm='rmtrash'

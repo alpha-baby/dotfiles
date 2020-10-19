@@ -23,13 +23,19 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # autojump config
 #! /bin/sh
-if["$(uname)"=="Darwin"];then
-# Mac OS X 操作系统
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-elif["$(expr substr $(uname -s) 1 5)"=="Linux"];then 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh  
-# GNU/Linux操作系统
-elif["$(expr substr $(uname -s) 1 10)"=="MINGW32_NT"];then    
-# Windows NT操作系统
-fi
+if [ "$(uname)" == "Darwin" ]; then
 
+    # macOS 操作系统
+    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+
+elif [ "$(uname)" == "Linux" ]; then
+
+    # Linux 操作系统
+    [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh  
+
+elif [ "$(uname)" == "MINGW32_NT" ]; then
+
+    echo "windows NT"
+
+fi
