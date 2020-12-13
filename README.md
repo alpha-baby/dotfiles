@@ -37,8 +37,7 @@ FROM centos:7.8.2003
 8. [docker]
 9. [Mos]
 10. [iRightMouse] AppStore
-11. [nvm] nodejs多版本管理工具，安装脚本`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash`
-12. [g] golang多版本管理工具，安装脚本`curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash`
+
 
 ### generate ssh key
 
@@ -65,6 +64,12 @@ brew install   git \
                md5sha1sum \
                telnet
 ```
+
+**多版本管理工具**
+
+1. [nvm] nodejs多版本管理工具[官网](https://github.com/nvm-sh/nvm)，安装脚本`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash`
+2. [g] golang多版本管理工具[官网](https://github.com/voidint/g)，安装脚本`curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash`
+3. [sdk] java多版本工具[官网](https://sdkman.io/)，安装脚本`curl -s "https://get.sdkman.io" | bash && source "$HOME/.sdkman/bin/sdkman-init.sh" && sdk version`
 
 ### config 
 
