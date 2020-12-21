@@ -7,6 +7,7 @@ zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # git-open 插件
+zinit ice lucid wait="0"
 zinit light paulirish/git-open 
     
 # 补全
