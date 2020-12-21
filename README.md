@@ -5,7 +5,7 @@
 # usually used soft
 
 1. [jetbrains develop tool](https://www.jetbrains.com/)
-  * Goladn
+  * Goland
   * ToolBox
   * IDEA
 2. [chrome](https://www.google.com/chrome/)
@@ -183,6 +183,8 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 **安装 oh-my-zsh插件管理工具 Zinit**
 
 一键安装 Zinit
+> 参考 https://www.dazhuanlan.com/2020/04/01/5e83ef650bc49/
+> https://zhuanlan.zhihu.com/p/98450570
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
@@ -210,7 +212,7 @@ Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
 
 ```bash
 npm install -g reveal.js
-``
+```
 
 
 #### config shell script

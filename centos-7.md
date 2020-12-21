@@ -129,13 +129,19 @@ yum clean all
 yum makecache  
 ```
 
-### 安装unzip 
+### 安装unzip
 
 ```bash
 yum install -y unzip  
 ```
 
-### 安装命令自动补全 
+### 安装git
+
+```bash
+yum install -y git
+```
+
+### 安装命令自动补全
 
 Centos7在使用最小化安装的时候，没有安装自动补全的包，需要自己手动安装。
 
@@ -158,8 +164,49 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2 #复制公钥到远程主机
 
 首先安装zsh
 
+> 参考 https://blog.csdn.net/weixin_42000303/article/details/106027827?utm_source=ld246.com
+
+执行如下命令可以看到`zsh`的下载地址：
+
 ```bash
-yum -y install zsh
+$ yum info zsh
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+Installed Packages
+Name        : zsh
+Arch        : x86_64
+Version     : 5.0.2
+Release     : 34.el7_8.2
+Size        : 5.6 M
+Repo        : installed
+From repo   : base
+Summary     : Powerful interactive shell
+URL         : http://zsh.sourceforge.net/
+License     : MIT
+Description : The zsh shell is a command interpreter usable as an interactive login
+            : shell and as a shell script command processor.  Zsh resembles the ksh
+            : shell (the Korn shell), but includes many enhancements.  Zsh supports
+            : command line editing, built-in spelling correction, programmable
+            : command completion, shell functions (with autoloading), a history
+            : mechanism, and more.
+```
+
+下载最新的zsh-5.8.tar.xz包，并上传到Linux系统中
+
+```bash
+# 安装依赖
+yum -y install gcc perl-ExtUtils-MakeMaker
+yum -y install ncurses-devel
+# 编译安装
+tar xvf zsh-5.8.tar.xz
+cd zsh-5.8
+./configure
+make && make install
+# 将zsh加入/etc/shells
+vim /etc/shells # 添加：/usr/local/bin/zsh
 ```
 
 下载 oh-my-zsh 项目来帮我们配置 zsh，采用wget安装(需要先安装git)
@@ -168,6 +215,43 @@ yum -y install zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
+
+**一键安装 Zinit**
+
+> 参考 https://www.dazhuanlan.com/2020/04/01/5e83ef650bc49/
+> https://zhuanlan.zhihu.com/p/98450570
+
+官方推荐安装方式：
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+```
+
+因为大家都知道的原因，随意还是使用源码安装的方式：
+
+```bash
+git clone https://github.com/zdharma/zinit.git ~/.zinit/bin &&\
+    echo 'source ~/.zinit/bin/zinit.zsh' >> ~/.zshrc &&\
+    source ~/.zshrc
+```
+
+## 安装exa 替换默认的ls
+
+> 参考 https://www.jianshu.com/p/3a31a90c3451
+
+依赖安装
+
+```bash
+yum install gcc
+wget http://ftp.gnu.org/gnu/glibc/glibc-2.18.tar.gz
+tar zxf glibc-2.18.tar.gz 
+cd glibc-2.18/
+mkdir build && cd build/
+../configure --prefix=/usr
+make -j4 && make install
+```
+
+下载编译好的 `exa` 二进制文件，然后把 `exa` 放到对应的目录中，[官网](https://the.exa.website/)
 
 **安装powerlevel10k主题**
 

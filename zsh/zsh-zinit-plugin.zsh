@@ -7,8 +7,7 @@ zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # git-open 插件
-zinit as"null" wait"1" lucid for \
-    sbin    cloneopts paulirish/git-open 
+zinit light paulirish/git-open 
     
 # 补全
 zinit ice lucid wait='0'
@@ -23,18 +22,18 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # autojump config
 #! /bin/sh
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
 
     # macOS 操作系统
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 
-elif [ "$(uname)" == "Linux" ]; then
+elif [[ "$(uname)" == "Linux" ]]; then
 
     # Linux 操作系统
     [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh  
 
-elif [ "$(uname)" == "MINGW32_NT" ]; then
+elif [[ "$(uname)" == "MINGW32_NT" ]]; then
 
     echo "windows NT"
 
