@@ -34,3 +34,4 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 # == kubernetes ==
 # kubectl
 alias k=kubectl
+export KUBE_EDITOR="nvim" # 

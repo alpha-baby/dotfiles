@@ -160,6 +160,27 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2 #复制公钥到远程主机
 
 > 参考 https://blog.csdn.net/weixin_42000303/article/details/106027827
 
+## neovim 安装
+
+> 官网
+> wiki https://github.com/neovim/neovim/wiki/Installing-Neovim
+
+install
+
+```bash
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y neovim python36-neovim
+```
+
+### 安装 neovim 插件管理器 vim-plug
+
+https://github.com/junegunn/vim-plug
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
 ## 安装oh-my-zsh
 
 首先安装zsh
@@ -253,18 +274,13 @@ make -j4 && make install
 
 下载编译好的 `exa` 二进制文件，然后把 `exa` 放到对应的目录中，[官网](https://the.exa.website/)
 
-**安装powerlevel10k主题**
-
-```bash
-git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
-```
-
 切换zsh
 
 ```bash
 sudo chsh -s /bin/zsh
 ```
+
+## autojump
 
 首先下载 autojump 源码
 
@@ -272,7 +288,6 @@ sudo chsh -s /bin/zsh
 git clone git://github.com/joelthelion/autojump.git
 然后可安装或卸载
 ```
-
 
 ```bash
 cd autojump
@@ -283,6 +298,7 @@ cd autojump
 ```bash
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 ```
+
 然后，运行source ~/.bashrc即可。
 
 安装完成后，使用查看autojump版本。
@@ -292,23 +308,15 @@ $ autojump --version
 autojump release-v21.1.2
 ```
 
-安装zinit
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-```
-
 安装 tmux
 
 // todo
 
-安装neovim
 
-https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download
+## 拉取配置
 
 ```bash
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y neovim python3-neovim
-# you might need python2-neovim as well on older Fedora releases
+git clone https://github.com/alpha-baby/dotfiles.git ~/dotfiles
 ```
 
+执行对应系统的脚本

@@ -62,7 +62,8 @@ brew install   git \
                speedtest-cli \
                cloc \
                md5sha1sum \
-               telnet
+               telnet \
+               kubecm 
 ```
 
 **多版本管理工具**
@@ -251,4 +252,3 @@ fi
 # 加载zsh配置
 echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
 ```
-
