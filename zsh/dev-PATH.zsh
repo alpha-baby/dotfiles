@@ -3,6 +3,7 @@
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOBIN/bin
 
 # g verison manager
 export GOROOT="${HOME}/.g/go"
