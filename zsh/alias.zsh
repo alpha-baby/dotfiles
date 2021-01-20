@@ -13,6 +13,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias rm='rmtrash'
 elif [[ "$(uname)" == "Linux" ]]; then
     alias ls="exa"
+    alias ll="exa -alghHb --git"
 fi
 
 # proxy network

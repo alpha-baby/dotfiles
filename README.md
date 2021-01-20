@@ -48,11 +48,12 @@ ssh-keygen -t rsa -C "example@github.com"
 ### install command line tool
 
 ```bash
-gem install colorls
+gem install colorls || brwe install exa 
 brew install   git \
                wget \
                nvim \
                rmtrash \
+               exa \
                python3 \
                autojump \
                tmux \

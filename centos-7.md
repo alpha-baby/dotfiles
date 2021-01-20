@@ -70,7 +70,7 @@ yum install -y openssl openssh-server
 systemctl status sshd
 ```
 
-### 安装ifconfig 
+### 安装ifconfig
 
 最小化安装CentOS7后，想查看我的IP，发现 ifconfig命令不存在。
 
@@ -86,14 +86,14 @@ ifconfig命令依赖于net-tools，如果需要可以用如下命令来安装。
 yum install -y net-tools  
 ```
 
-### 关闭防火墙 
+### 关闭防火墙
 
 ```bash
 systemctl stop firewalld  
 systemctl disable firewalld  
 ```
 
-### selinux 
+### selinux
 
 ```bash
 setenforce 0  
@@ -106,15 +106,13 @@ sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 yum install -y wget  
 ```
 
-
-### 更换yum源 
+### 更换yum源
 
 备份系统旧配置文件
 
 ```bash
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak  
 ```
-
 
 获取yum配置文件到/etc/yum.repos.d/
 
@@ -312,7 +310,6 @@ autojump release-v21.1.2
 
 // todo
 
-
 ## 拉取配置
 
 ```bash
@@ -320,3 +317,13 @@ git clone https://github.com/alpha-baby/dotfiles.git ~/dotfiles
 ```
 
 执行对应系统的脚本
+
+## nvm node.js
+
+> 参考 https://github.com/nvm-sh/nvm#installing-and-updating
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+or
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
