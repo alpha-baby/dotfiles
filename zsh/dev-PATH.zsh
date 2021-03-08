@@ -1,19 +1,13 @@
-# golang path
-# export GOROOT=/usr/local/go/go1.12.14
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOBIN/bin
-
 # g verison manager
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
 export G_MIRROR=https://golang.google.cn/dl/
 unalias g
-
-function golist() {
-    /bin/ls -al /usr/local/go/ |awk  -F ' '  '{print $9}' | /usr/bin/grep -e '^\w'
-}
+# golang path
+# export GOROOT=/usr/local/go/go1.12.14
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # homebrew exe path
 export PATH=/usr/local/opt:${PATH}

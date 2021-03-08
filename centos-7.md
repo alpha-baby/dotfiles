@@ -158,16 +158,36 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2 #复制公钥到远程主机
 
 > 参考 https://blog.csdn.net/weixin_42000303/article/details/106027827
 
+## golang 安装
+
+**安装golang 多版本工具**
+
+```bash
+curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+mv ~/bin/g /usr/local/bin/g
+```
+
+```bash
+g ls-remote
+g install 1.15.8
+go version # check
+```
+
 ## neovim 安装
 
 > 官网
 > wiki https://github.com/neovim/neovim/wiki/Installing-Neovim
+> 参考
+> https://blog.csdn.net/liyelool/article/details/107895707
 
 install
 
 ```bash
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y neovim python36-neovim
+yum install -y python36-neovim
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+tar zxvf nvim-linux64.tar.gz -C /usr/local/
+rm -rf /usr/bin/nvim
+ln -s /usr/local/nvim-linux64/bin/nvim /usr/bin/nvim
 ```
 
 ### 安装 neovim 插件管理器 vim-plug
@@ -314,6 +334,8 @@ autojump release-v21.1.2
 
 ```bash
 git clone https://github.com/alpha-baby/dotfiles.git ~/dotfiles
+# 进入nvim 安装插件
+# :PlugInstall
 ```
 
 执行对应系统的脚本
