@@ -108,6 +108,7 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'connorholyday/vim-snazzy'
 Plug 'arcticicestudio/nord-vim'
 Plug 'theniceboy/vim-deus'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " devlop tool
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -141,7 +142,7 @@ Plug 'vimwiki/vimwiki'
 
 " Bookmarks
 Plug 'kshenoy/vim-signature'
-
+Plug 'lambdalisue/suda.vim'
 " Other useful utilities
 "Plug 'terryma/vim-multiple-cursors'
 "Plug 'junegunn/goyo.vim' " distraction free writing mode
@@ -157,16 +158,16 @@ Plug 'kshenoy/vim-signature'
 call plug#end()
 
 
-" let g:SnazzyTransparent = 1
-" color snazzy
-" let g:neodark#background = '#202020'
-" let g:neodark#use_256color = 0 " default: 0
-" let g:neodark#terminal_transparent = 0 " default: 0
-" let g:neodark#solid_vertsplit = 1 " default: 0
-" let g:lightline = {}
-" let g:lightline.colorscheme = 'nord'
+let g:SnazzyTransparent = 1
+color snazzy
+let g:neodark#background = '#202020'
+let g:neodark#use_256color = 0 " default: 0
+let g:neodark#terminal_transparent = 0 " default: 0
+let g:neodark#solid_vertsplit = 1 " default: 0
+let g:lightline = {}
+let g:lightline.colorscheme = 'nord'
 " colorscheme nord
-colorscheme deus
+" colorscheme dracula
 
 " vim-plug 加入插件 defx, defx-icons
 if has('nvim')

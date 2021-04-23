@@ -9,7 +9,7 @@ alias grep='grep --color=auto -in'
 if [[ "$(uname)" == "Darwin" ]]; then
     # Mac OS X 操作系统
     alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-    alias ls="colorls"
+    alias ls="lsd"
     alias rm='rmtrash'
 elif [[ "$(uname)" == "Linux" ]]; then
     alias ls="exa"

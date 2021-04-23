@@ -64,7 +64,8 @@ brew install   git \
                cloc \
                md5sha1sum \
                telnet \
-               kubecm 
+               kubecm \
+               lsd
 ```
 
 **多版本管理工具**
