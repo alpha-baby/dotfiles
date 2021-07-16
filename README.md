@@ -257,3 +257,7 @@ fi
 # 加载zsh配置
 echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
 ```
+
+# zsh加载速度优化
+
+参考 https://zhuanlan.zhihu.com/p/68303393
