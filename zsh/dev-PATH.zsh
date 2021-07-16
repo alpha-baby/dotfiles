@@ -2,7 +2,7 @@
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
 export G_MIRROR=https://golang.google.cn/dl/
-unalias g
+# unalias g
 # golang path
 # export GOROOT=/usr/local/go/go1.12.14
 export GOPATH=$HOME/go
@@ -25,6 +25,3 @@ export PATH=$PATH:$CATALINA_HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 export MYVIMRC='~/.config/nvim/init.vim'
 
-# This loads nvm, nvm is mutil version manager of nodejs
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 

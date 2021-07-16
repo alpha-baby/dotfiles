@@ -65,7 +65,10 @@ brew install   git \
                md5sha1sum \
                telnet \
                kubecm \
-               lsd
+               lsd \
+               clementtsang/bottom/bottom \
+               tealdeer \
+               ncdu
 ```
 
 **多版本管理工具**

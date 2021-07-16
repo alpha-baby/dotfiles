@@ -3,7 +3,7 @@ alias tnew="tmux new -s"
 alias ll="ls -al"
 alias nv="nvim"
 alias snv="sudo nvim"
-alias grep='grep --color=auto -in'
+alias grep='grep --color=auto -i'
 # autojump config
 #! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
