@@ -1,3 +1,6 @@
+
+# Language
+LANG=zh_CN.UTF-8
 # g verison manager
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
