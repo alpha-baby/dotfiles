@@ -57,6 +57,7 @@ zinit wait lucid for \
 zinit wait lucid for \
     zdharma/zsh-unique-id \
     OMZ::lib/git.zsh \
+    OMZ::plugins/golang/golang.plugin.zsh \
  atload"unalias grv g" \
     OMZ::plugins/git/git.plugin.zsh
 
