@@ -59,7 +59,8 @@ zinit wait lucid for \
     OMZ::lib/git.zsh \
     OMZ::plugins/golang/golang.plugin.zsh \
  atload"unalias grv g" \
-    OMZ::plugins/git/git.plugin.zsh
+    OMZ::plugins/git/git.plugin.zsh \
+    OMZ::plugins/docker/_docker
 
 # A few wait'3' git extensions
 zinit as"null" wait"3" lucid for \
