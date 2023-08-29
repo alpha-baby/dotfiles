@@ -111,7 +111,8 @@ Plug 'theniceboy/vim-deus'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " devlop tool
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" 默认不安装 vim go
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mhinz/vim-startify'
 " File navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }

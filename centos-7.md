@@ -158,6 +158,12 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.2 #复制公钥到远程主机
 
 > 参考 https://blog.csdn.net/weixin_42000303/article/details/106027827
 
+## 安装网络代理工具 clash
+
+https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/
+
+https://github.com/haishanh/yacd
+
 ## golang 安装
 
 **安装golang 多版本工具**
@@ -255,24 +261,15 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
-**一键安装 Zinit**
+## 安装 zi (zsh 插件管理工具)
 
-> 参考 https://www.dazhuanlan.com/2020/04/01/5e83ef650bc49/
-> https://zhuanlan.zhihu.com/p/98450570
+原 zinit 项目被作者直接删除了
 
-官方推荐安装方式：
+https://sdl.moe/post/zsh-conf/
 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-```
+可参考博文作者的配置 https://gist.github.com/Colerar/64edef4633d2fcede456170d3bd2f67e
 
-因为大家都知道的原因，随意还是使用源码安装的方式：
-
-```bash
-git clone https://github.com/zdharma/zinit.git ~/.zinit/bin &&\
-    echo 'source ~/.zinit/bin/zinit.zsh' >> ~/.zshrc &&\
-    source ~/.zshrc
-```
+https://wiki.zshell.dev/zh-Hans/docs/getting_started/installation
 
 ## 安装exa 替换默认的ls
 
@@ -303,7 +300,7 @@ sudo chsh -s /bin/zsh
 首先下载 autojump 源码
 
 ```bash
-git clone git://github.com/joelthelion/autojump.git
+git clone https://github.com/wting/autojump.git
 然后可安装或卸载
 ```
 
