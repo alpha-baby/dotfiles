@@ -1,20 +1,3 @@
-# 语法高亮
-# zinit ice lucid wait='0' atinit='zpcompinit'
-# zinit light zdharma/fast-syntax-highlighting
-
-# 自动建议
-# zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
-# zinit light zsh-users/zsh-autosuggestions
-
-# git-open 插件
-# zinit ice lucid wait="0"
-# zinit light paulirish/git-open 
-    
-# 补全
-# zinit ice lucid wait='0'
-# zinit light zsh-users/zsh-completions
-# zstyle ':completion:*:complete:*' cache-path "${HOME}/.zcompdump"
-#
 # 延迟加载
 zinit light romkatv/zsh-defer
 # p10k oh-my-zsh主题
@@ -44,45 +27,51 @@ fi
 
 
 # Fast-syntax-highlighting & autosuggestions
-zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
-    zdharma/fast-syntax-highlighting \
+zi wait lucid for \
+ atinit"zicompinit; zicdreplay" \
+    z-shell/fast-syntax-highlighting \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
  blockf \
     zsh-users/zsh-completions
 
-# lib/git.zsh is loaded mostly to stay in touch with the plugin (for the users)
-# and for the themes 2 & 3 (lambda-mod-zsh-theme & lambda-gitster)
-zinit wait lucid for \
-    zdharma/zsh-unique-id \
+# # lib/git.zsh is loaded mostly to stay in touch with the plugin (for the users)
+# # and for the themes 2 & 3 (lambda-mod-zsh-theme & lambda-gitster)
+zi wait lucid for \
+    zdharma-continuum/zsh-unique-id \
     OMZ::lib/git.zsh \
     OMZ::plugins/golang/golang.plugin.zsh \
  atload"unalias grv g" \
     OMZ::plugins/git/git.plugin.zsh \
-    OMZ::plugins/docker/_docker
+    OMZP::docker
 
-# A few wait'3' git extensions
-zinit as"null" wait"3" lucid for \
-    sbin Fakerr/git-recall \
-    sbin paulirish/git-open \
-    sbin paulirish/git-recent \
-    sbin davidosomething/git-my \
-    sbin atload"export _MENU_THEME=legacy" \
-        arzzen/git-quick-stats \
-    sbin iwata/git-now \
-    make"PREFIX=$ZPFX"         tj/git-extras \
-    sbin"bin/git-dsf;bin/diff-so-fancy" zdharma/zsh-diff-so-fancy \
-    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" zdharma/git-url
+# # A few wait'3' git extensions
+zi as'null' wait'3' lucid for \
+  sbin  Fakerr/git-recall \
+  sbin  cloneopts paulirish/git-open \
+  sbin  paulirish/git-recent \
+  sbin  davidosomething/git-my \
+  sbin  iwata/git-now \
+  sbin atload'export _MENU_THEME=legacy' \
+    arzzen/git-quick-stats \
+  sbin'bin/git-dsf;bin/diff-so-fancy' \
+    z-shell/zsh-diff-so-fancy \
+  make'PREFIX=$ZPFX install' \
+    tj/git-extras
 
-# fzf, fzy
-zinit pack"bgn-binary" for fzf
-zinit pack"bgn" for fzy
-
-
+zi light paulirish/git-open
 
 export NVM_DIR="${HOME}/.nvm"
 zsh-defer -c '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'  # This loads nvm
 
 export SDKMAN_DIR="/Users/fujianhao3/.sdkman"
 zsh-defer -c '[[ -s "/Users/fujianhao3/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/fujianhao3/.sdkman/bin/sdkman-init.sh"'
+
+# g shell setup
+function _load_g_env() {
+  if [ -f "${HOME}/.g/env" ]; then
+    . "${HOME}/.g/env"
+  fi
+}
+
+zsh-defer -c '_load_g_env'

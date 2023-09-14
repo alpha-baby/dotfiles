@@ -9,8 +9,18 @@ alias grep='grep --color=auto -i'
 if [[ "$(uname)" == "Darwin" ]]; then
     # Mac OS X 操作系统
     alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-    alias ls="lsd"
-    alias rm='rmtrash'
+    # 替换 ls 命令
+    which "lsd" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        alias ls="lsd"
+    fi
+    # 替换 rm 命令
+    which "trash" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        alias rm='trash'
+    else
+        echo  "not found trash command, alias rm failed"
+    fi
 elif [[ "$(uname)" == "Linux" ]]; then
     alias ls="exa"
     alias ll="exa -alghHb --git"
@@ -29,7 +39,7 @@ function v2() {
 
 # git alias config
 #alias glog="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+# alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 #alias git="git --no-pager"
 
 # == kubernetes ==

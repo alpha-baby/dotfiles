@@ -36,7 +36,6 @@ FROM centos:7.8.2003
 7. [Go2Shell](http://zipzapmac.com/Go2Shell)
 8. [docker]
 9. [Mos]
-10. [iRightMouse] AppStore
 
 
 ### generate ssh key
@@ -48,11 +47,11 @@ ssh-keygen -t rsa -C "example@github.com"
 ### install command line tool
 
 ```bash
-gem install colorls || brwe install exa 
+gem install colorls || brew install exa 
 brew install   git \
                wget \
                nvim \
-               rmtrash \
+               trash \
                exa \
                python3 \
                autojump \
@@ -97,7 +96,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 **命令行打开**
 
 打开 `VS Code`，打开控制面板`(⇧⌘P)`,输入 `"shell command"`，在提示里看到 `Shell Command: Install 'code' command in PATH`，运行它就可以了。
-本质就是创建了软连接`/usr/local/bin/code -> /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`
+本质就是创建了软连接`ll`
 
 或者手动把下面的配置添加在 `.zshrc`或者`.bashrc` 文件里：
 
@@ -186,31 +185,15 @@ exec su - $USER
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-**安装 oh-my-zsh插件管理工具 Zinit**
+### 安装 zi (zsh 插件管理工具)
 
-一键安装 Zinit
-> 参考 https://www.dazhuanlan.com/2020/04/01/5e83ef650bc49/
-> https://zhuanlan.zhihu.com/p/98450570
+原 zinit 项目被作者直接删除了
 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-```
+https://sdl.moe/post/zsh-conf/
 
-**安装powerlevel10k主题**
+可参考博文作者的配置 https://gist.github.com/Colerar/64edef4633d2fcede456170d3bd2f67e
 
-```bash
-brew install romkatv/powerlevel10k/powerlevel10k
-echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
-```
-
-OR
-
-```bash
-git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
-```
-
-Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
+https://wiki.zshell.dev/zh-Hans/docs/getting_started/installation
 
 ### node tools
 
@@ -261,3 +244,8 @@ echo "source ~/dotfiles/zsh/load.zsh" >> ~/.zshrc
 # zsh加载速度优化
 
 参考 https://zhuanlan.zhihu.com/p/68303393
+
+# jetbrains
+
+最新验证码：660913
+idea激活码下载地址：https://www.ajihuo.com/idea/4222.html

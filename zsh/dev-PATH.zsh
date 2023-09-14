@@ -19,7 +19,7 @@ export PATH=/Applications/vscode.app/Contents/Resources/app/bin:$PATH
 
 
 # java 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
+export JAVA_HOME=$HOME/java/jdk1.8.0_381.jdk/Contents/Home
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 export CATALINA_HOME=$HOME/java/apache-tomcat-8.5.47
