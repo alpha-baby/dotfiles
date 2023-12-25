@@ -46,18 +46,25 @@ zi wait lucid for \
     OMZP::docker
 
 # # A few wait'3' git extensions
-zi as'null' wait'3' lucid for \
-  sbin  Fakerr/git-recall \
-  sbin  cloneopts paulirish/git-open \
-  sbin  paulirish/git-recent \
-  sbin  davidosomething/git-my \
-  sbin  iwata/git-now \
-  sbin atload'export _MENU_THEME=legacy' \
-    arzzen/git-quick-stats \
-  sbin'bin/git-dsf;bin/diff-so-fancy' \
-    z-shell/zsh-diff-so-fancy \
-  make'PREFIX=$ZPFX install' \
-    tj/git-extras
+# zi as'null' wait'3' lucid for \
+#   sbin  Fakerr/git-recall \
+#   sbin  cloneopts paulirish/git-open \
+#   sbin  paulirish/git-recent \
+#   sbin  davidosomething/git-my \
+#   sbin  iwata/git-now \
+#   sbin atload'export _MENU_THEME=legacy' \
+#     arzzen/git-quick-stats \
+#   sbin'bin/git-dsf;bin/diff-so-fancy' \
+#     z-shell/zsh-diff-so-fancy \
+#   make'PREFIX=$ZPFX install' \
+#     tj/git-extras
+zi wait lucid for \
+  Fakerr/git-recall \
+  paulirish/git-open \
+  paulirish/git-recent \
+  davidosomething/git-my \
+  make"PREFIX=$ZPFX install" iwata/git-now \
+  make"PREFIX=$ZPFX" tj/git-extras
 
 zi light paulirish/git-open
 
