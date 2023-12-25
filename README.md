@@ -122,7 +122,7 @@ Hack Nerd Font
 
 #### iTerm2
 
-1. 配色安装
+1. 配色安装vim 
 
 ```bash
 mkdir ~/.iterm2 && cd ~/.iterm2

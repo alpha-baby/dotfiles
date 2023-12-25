@@ -69,7 +69,8 @@ map ; :
 map S :w<CR>
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
-map <C-e> <C-[>
+map <C-e> <C-[>  " in normal mode, use CTRL + e replace CTRL + [, means ESC
+imap <C-e> <C-[> " in insert mode, use CTRL + e replace CTRL + [, means ESC
 map <C-f> :?
 
 " 分屏快捷键绑定
@@ -89,9 +90,10 @@ map <left> :vertical resize+5<CR>
 map <right> :vertical resize-5<CR>
 map <Esc> :w<CR>  " esc 映设为保存
 " 快速调整tab 切换
-map tu :tabe<CR>
-map tl :+tabnext<CR>
-map tj :-tabnext<CR>
+map tu :tabe<CR>       " 新增一个 tab
+map tl :+tabnext<CR>   " 移动到右边的一个 tab
+map tj :-tabnext<CR>   " 移动到左边的一个 tab
+map tc :tabc<CR>       " 关闭当前的 tab
 
 "
 " ==
@@ -156,6 +158,8 @@ Plug 'lambdalisue/suda.vim'
 "Plug 'MarcWeber/vim-addon-mw-utils'
 "Plug 'kana/vim-textobj-user'
 "Plug 'fadein/vim-FIGlet'
+" Use release branch (recommended)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
