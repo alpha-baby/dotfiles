@@ -1,6 +1,6 @@
 #!/bin/bash
 # Taken and modified from https://github.com/agriffis/skel/blob/master/neovim/bin/clipboard-provider
-#
+# refer https://lotabout.me/2019/Integrate-clipboard-with-SSH/
 # clipboard provider for neovim
 #
 # :help provider-clipboard
