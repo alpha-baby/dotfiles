@@ -1,4 +1,4 @@
-alias sudo='sudo '
+alias sudo='sudo -E'
 alias tnew="tmux new -s"
 alias ll="ls -al"
 
@@ -9,7 +9,7 @@ if [ $? -eq 0 ]; then
 else
 
 alias nv="nvim"
-alias snv="sudo nvim"
+alias snv="sudo -E nvim"
 alias grep='grep --color=auto -i'
 # == kubernetes ==
 # kubectl
