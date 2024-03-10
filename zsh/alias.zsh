@@ -1,20 +1,28 @@
 alias sudo='sudo -E'
-alias tnew="tmux new -s"
 alias ll="ls -al"
 
-which "lsd" >/dev/null 2>&1
+which "tmux" >/dev/null 2>&1
 if [ $? -eq 0 ]; then
-    alias ls="lsd"
-    alias ll="lsd -alhg"
+    alias tnew="tmux new -s"
 else
+    echo "not found tmux; maybe you call install it. like: brew install tmux"
+fi
 
-alias nv="nvim"
-alias snv="sudo -E nvim"
-alias grep='grep --color=auto -i'
+which "nvim" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alias nv="nvim"
+    alias snv="sudo nvim"
+    export KUBE_EDITOR="nvim" # 
+else
+    echo "not found nvim; maybe you call install it. like: brew install nvim"
+fi
+
 # == kubernetes ==
 # kubectl
 alias k=kubectl
-export KUBE_EDITOR="nvim" # 
+
+alias grep='grep --color=auto -i'
+
 # autojump config
 #! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
