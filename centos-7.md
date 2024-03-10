@@ -179,6 +179,35 @@ g install 1.15.8
 go version # check
 ```
 
+## 安装 linuxbrew
+
+[homebrew](https://brew.sh/)
+
+```bash
+# 从本镜像下载安装脚本并安装 Homebrew / Linuxbrew
+git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
+/bin/bash brew-install/install.sh
+rm -rf brew-install
+
+# 也可从 GitHub 获取官方安装脚本安装 Homebrew / Linuxbrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+设置 homebrew 镜像，可以加速 homebrew 安装包
+
+```bash
+# 代理后更快：https_proxy
+brew install lsd \
+              btop \
+              trash \
+              neovim \
+              tmux \
+              xclip \
+              ranger
+
+```
+
+
 ## neovim 安装
 
 > 官网
@@ -271,7 +300,7 @@ https://sdl.moe/post/zsh-conf/
 
 https://wiki.zshell.dev/zh-Hans/docs/getting_started/installation
 
-## 安装exa 替换默认的ls
+## 安装exa 替换默认的ls(Deprecated)
 
 > 参考 https://www.jianshu.com/p/3a31a90c3451
 

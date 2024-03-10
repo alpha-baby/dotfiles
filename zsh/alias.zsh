@@ -1,24 +1,36 @@
 alias sudo='sudo '
 alias tnew="tmux new -s"
 alias ll="ls -al"
+
+which "lsd" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alias ls="lsd"
+    alias ll="lsd -alhg"
+else
+
 alias nv="nvim"
 alias snv="sudo nvim"
 alias grep='grep --color=auto -i'
+# == kubernetes ==
+# kubectl
+alias k=kubectl
+export KUBE_EDITOR="nvim" # 
 # autojump config
 #! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
     # Mac OS X 操作系统
     alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-    # 替换 rm 命令
-    which "trash" >/dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        alias rm='trash'
-    else
-        echo  "not found trash command, alias rm failed"
-    fi
 elif [[ "$(uname)" == "Linux" ]]; then
     # alias ls="exa"
     # alias ll="exa -alghHb --git"
+fi
+
+# 替换 rm 命令
+which "trash" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alias rm='trash'
+else
+    echo  "not found trash command, alias rm failed"
 fi
 
 # 替换 ls 命令
@@ -31,6 +43,8 @@ else
     if [ $? -eq 0 ]; then
         alias ls="exa"
         alias ll="exa -alghHb --git"
+    else
+        echo  "not found lsd or exa command, alias ls failed"
     fi
 fi
 
@@ -62,8 +76,3 @@ function cl() {
 #alias glog="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 # alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 #alias git="git --no-pager"
-
-# == kubernetes ==
-# kubectl
-alias k=kubectl
-export KUBE_EDITOR="nvim" # 
