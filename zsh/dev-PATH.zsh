@@ -5,6 +5,9 @@ export LANG=zh_CN.UTF-8
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
 export G_MIRROR=https://golang.google.cn/dl/
+
+# remote ssh clipboard
+export PATH="${HOME}/dotfiles/nvim:$PATH"
 # unalias g
 # golang path
 # export GOROOT=/usr/local/go/go1.12.14

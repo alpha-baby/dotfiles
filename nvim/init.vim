@@ -500,3 +500,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 "" Resume latest coc list
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+if executable('clipboard-provider')
+    let g:clipboard = {
+          \ 'name': 'myClipboard',
+          \     'copy': {
+          \         '+': 'clipboard-provider copy',
+          \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider copy',
+          \     },
+          \     'paste': {
+          \         '+': 'clipboard-provider paste',
+          \         '*': 'env COPY_PROVIDERS=tmux clipboard-provider paste',
+          \     },
+          \ }
+endif
+
