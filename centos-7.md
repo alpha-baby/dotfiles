@@ -207,6 +207,10 @@ brew install lsd \
 
 ```
 
+## 安装 pbcopy
+
+在 ./tools 目录下
+
 
 ## neovim 安装
 

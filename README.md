@@ -131,6 +131,7 @@ git clone https://github.com/mbadolato/iTerm2-Color-Schemes
 ```
 
 iTerm2->Preferences->Profiles->Colors->Color Presets->Import->导入iTerm2-Color-Schemes->schemes全部
+Preferences -> General -> Selection 下勾选 Applications in terminal may access clipboard
 
 2. 设置字体
 
