@@ -184,6 +184,12 @@ go version # check
 [homebrew](https://brew.sh/)
 
 ```bash
+# 安装依赖工具
+sudo yum install epel-release
+sudo make clen all
+sudo makecache
+sudo yum install procps-ng curl file git
+
 # 从本镜像下载安装脚本并安装 Homebrew / Linuxbrew
 git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
 /bin/bash brew-install/install.sh
@@ -200,6 +206,7 @@ rm -rf brew-install
 brew install lsd \
               btop \
               trash \
+              autojump \
               neovim \
               tmux \
               xclip \
@@ -279,18 +286,21 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
 yum -y install gcc perl-ExtUtils-MakeMaker
 yum -y install ncurses-devel
 # 编译安装
-tar xvf zsh-5.8.tar.xz
-cd zsh-5.8
+tar xvf zsh-5.9.tar.xz
+cd zsh-5.9
 ./configure
-make && make install
+make
+sudo make install
 # 将zsh加入/etc/shells
-vim /etc/shells # 添加：/usr/local/bin/zsh
+sudo vim /etc/shells # 添加：/usr/local/bin/zsh
 ```
 
 下载 oh-my-zsh 项目来帮我们配置 zsh，采用wget安装(需要先安装git)
 
 ```bash
+# 下载安装脚本
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+# 执行安装脚本
 sh install.sh
 ```
 
@@ -327,38 +337,6 @@ make -j4 && make install
 ```bash
 sudo chsh -s /bin/zsh
 ```
-
-## autojump
-
-首先下载 autojump 源码
-
-```bash
-git clone https://github.com/wting/autojump.git
-然后可安装或卸载
-```
-
-```bash
-cd autojump
-./install.py or ./uninstall.py
-由于Linux 下 Shell 启动会自动读取 ~/.bashrc 文件，所以将下面一行添加到该文件中
-```
-
-```bash
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-```
-
-然后，运行source ~/.bashrc即可。
-
-安装完成后，使用查看autojump版本。
-
-```bash
-$ autojump --version
-autojump release-v21.1.2
-```
-
-安装 tmux
-
-// todo
 
 ## 拉取配置
 
