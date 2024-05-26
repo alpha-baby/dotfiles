@@ -1,4 +1,4 @@
-alias sudo='sudo -E'
+alias sudo='sudo -E '
 alias ll="ls -al"
 
 which "tmux" >/dev/null 2>&1
