@@ -28,7 +28,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 elif [[ "$(uname)" == "Linux" ]]; then
 
     # Linux 操作系统
-    echo "linux\n"
     which "brew" >/dev/null 2>&1
     if [ $? -eq 0 ]; then
         # autojump config
