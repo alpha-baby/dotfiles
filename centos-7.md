@@ -346,6 +346,12 @@ git clone https://github.com/alpha-baby/dotfiles.git ~/dotfiles
 # :PlugInstall
 ```
 
+## 安装中文支持
+
+```
+yum install kde-l10n-Chinese
+```
+
 执行对应系统的脚本
 
 ## nvm node.js

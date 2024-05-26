@@ -1,6 +1,12 @@
 
 # Language
 export LANG=zh_CN.UTF-8
+# 如果不支持中文可以改成英文
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+# 如果是 centos 可以通过如下命令安装中文
+# yum install kde-l10n-Chinese
+
 # g verison manager
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
