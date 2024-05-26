@@ -32,11 +32,11 @@ export PATH=$PATH:$CATALINA_HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 export MYVIMRC='~/.config/nvim/init.vim'
 
-# Add seemingly missing pkg-config path? Not sure why this is happening...
 which "brew" >/dev/null 2>&1
 if [ $? -eq 0 ]; then
     # home brew env install
     eval "$(brew shellenv)"
+    # Add seemingly missing pkg-config path? Not sure why this is happening...
     export PKG_CONFIG_PATH=$(brew --prefix)/lib/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}
 else
     echo "not found brew; maybe you can install it. refer: https://brew.sh"

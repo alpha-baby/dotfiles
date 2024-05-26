@@ -20,18 +20,24 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# autojump config
-#! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
 
     # macOS 操作系统
     zsh-defer -c '[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh'
 
-
 elif [[ "$(uname)" == "Linux" ]]; then
 
     # Linux 操作系统
-    zsh-defer -c '[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh'
+    echo "linux\n"
+    which "brew" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        # autojump config
+        zsh-defer -c '[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh'
+    else
+        echo "not found brew; maybe you can install it. refer: https://brew.sh"
+        echo "linux homebrew doc: https://docs.brew.sh/Homebrew-on-Linux"
+    fi
+
 
 elif [[ "$(uname)" == "MINGW32_NT" ]]; then
 

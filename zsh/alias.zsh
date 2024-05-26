@@ -23,7 +23,6 @@ alias k=kubectl
 
 alias grep='grep --color=auto -i'
 
-# autojump config
 #! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
     # Mac OS X 操作系统
