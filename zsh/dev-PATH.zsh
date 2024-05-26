@@ -41,6 +41,17 @@ if [ $? -eq 0 ]; then
 else
     echo "not found brew; maybe you can install it. refer: https://brew.sh"
     echo "linux homebrew doc: https://docs.brew.sh/Homebrew-on-Linux"
+
+    # 选择是否自动安装 homebrew
+    echo "auto intall homebrew?? [y/n]"
+    read install_homebrew_flag
+    if [[ "$install_homebrew_flag" == "n" ]] || [[ "$install_homebrew_flag" == "N" ]]; then
+        echo "not install homebrew."
+    else
+        echo 'exec install script: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo "\ninstall homebrew success!!!"
+    fi
 fi
 
 

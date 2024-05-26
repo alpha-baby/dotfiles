@@ -205,7 +205,7 @@ rm -rf brew-install
 # 代理后更快：https_proxy
 brew install lsd \
               btop \
-              trash \
+              trash-cli \
               autojump \
               neovim \
               tmux \
