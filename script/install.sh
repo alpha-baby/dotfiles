@@ -4,7 +4,7 @@ if [ $? -ne 0 ]; then
     exit 3
 fi
 
-_new_version=`git rev-parse HEAD`
+_new_version=`git -C ${HOME}/dotfiles rev-parse HEAD`
 _installed_version=""
 if [[ -f "$HOME"/dotfiles/script/.installed_version ]]; then
     _installed_version=`cat ${HOME}/dotfiles/script/.installed_version`
