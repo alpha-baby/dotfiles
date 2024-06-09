@@ -204,6 +204,9 @@ https://wiki.zshell.dev/zh-Hans/docs/getting_started/installation
 npm install -g reveal.js
 ```
 
+### tmux 配置
+
+refer: https://www.bilibili.com/video/BV12y421h7rH/?spm_id_from=333.337.search-card.all.click&vd_source=3eff02c031fb023a8e5bb31e8baaa349
 
 #### config shell script
 

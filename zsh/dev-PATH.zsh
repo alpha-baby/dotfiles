@@ -1,12 +1,15 @@
 
 # Language
 export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
 # 如果不支持中文可以改成英文,如果终端中出现如下报错，那么说明不支持中文
 # -------
 # my_git_formatter:34: character not in range
 # my_git_formatter:34: character not in range
 # _p9k_get_icon:13: character not in range
 # -------
+# 如果想解决可以参考：https://blog.csdn.net/omaidb/article/details/120104853
+# 在我的 centos7 系统上只需要安装 yum install -y glibc-langpack-zh 就好了
 #export LANG=en_US.UTF-8
 #export LC_ALL=en_US.UTF-8
 # 如果是 centos 可以通过如下命令安装中文
