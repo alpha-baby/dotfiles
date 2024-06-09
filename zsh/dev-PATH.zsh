@@ -60,4 +60,11 @@ else
     fi
 fi
 
+if [[ "$(uname)" == "Linux" ]]; then
 
+    # Linux 操作系统
+    echo "install tools"
+    ls ${HOME}/dotfiles/tools
+    export ${HOME}/dotfiles/tools
+
+fi
