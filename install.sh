@@ -1,0 +1,1 @@
+echo 'source ${HOME}/dotfiles/zsh/load.zsh' > ${HOME}/.zshrc

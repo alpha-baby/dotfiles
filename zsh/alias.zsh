@@ -23,13 +23,18 @@ alias k=kubectl
 
 alias grep='grep --color=auto -i'
 
-#! /bin/sh
 if [[ "$(uname)" == "Darwin" ]]; then
     # Mac OS X 操作系统
     alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 elif [[ "$(uname)" == "Linux" ]]; then
     # alias ls="exa"
     # alias ll="exa -alghHb --git"
+
+    # Linux 操作系统
+    which "pbcoy" >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        alias pbcopy=${HOME}/dotfiles/tools/pbcopy
+    fi
 fi
 
 # 替换 rm 命令
