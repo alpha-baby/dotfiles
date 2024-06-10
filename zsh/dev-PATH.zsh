@@ -9,9 +9,10 @@ export LC_ALL=zh_CN.UTF-8
 # _p9k_get_icon:13: character not in range
 # -------
 # 如果想解决可以参考：https://blog.csdn.net/omaidb/article/details/120104853
+# refer https://github.com/romkatv/powerlevel10k/blob/master/README.md#error-character-not-in-range
 # 在我的 centos7 系统上只需要安装 yum install -y glibc-langpack-zh 就好了
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 # 如果是 centos 可以通过如下命令安装中文
 # yum install kde-l10n-Chinese
 
@@ -44,12 +45,22 @@ export CATALINA_HOME=$HOME/java/apache-tomcat-8.5.47
 export PATH=$PATH:$CATALINA_HOME/bin
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export MYVIMRC='~/.config/nvim/init.vim'
 
 which "brew" >/dev/null 2>&1
-if [ $? -eq 0 ]; then
+if [[ $? -ne 0 ]]; then
+    if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    elif [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+else
     # home brew env install
     eval "$(brew shellenv)"
+fi
+which "brew" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
     # Add seemingly missing pkg-config path? Not sure why this is happening...
     export PKG_CONFIG_PATH=$(brew --prefix)/lib/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}
 else
