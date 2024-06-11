@@ -1,5 +1,12 @@
 # ubuntu 20.04 配置开发环境
 
+## set proxy
+
+```
+# 如果安装过程中出现网络问题会导致安装不上
+# 可以先设置上代理后再执行安装
+```
+
 apt 和 dpkg 工具使用：https://www.cnblogs.com/eddyz/p/17175719.html
 
 ```bash
