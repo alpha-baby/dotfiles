@@ -9,6 +9,8 @@ sudo apt install zsh
 sudo apt install bsdmainutils
 sudo apt install screen ncurses-term ncurses-base
 sudo apt install language-pack-zh*
+# 安装 neovim 依赖的组件
+sudo apt install python3 python3-neovim lua5.3
 ```
 
 ## 拉取配置
@@ -29,8 +31,38 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
+## nvm node.js
+
+> 参考 https://github.com/nvm-sh/nvm#installing-and-updating
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+or
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
 ## linuxbrew(homebrew)
 
 ```bash
 brew install nvim trash-cli lsd
+```
+
+## install nodejs
+
+```bash
+nvm ls-remote
+nvm install {Version}
+```
+
+## nvim 插件安装
+
+首先进入 nvim
+
+然后执行
+
+```bash
+:PlugInstall
+:CocInstall
+# 检查 nvim 是否健康
+:checkhealth
 ```
