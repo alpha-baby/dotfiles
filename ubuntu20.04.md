@@ -73,3 +73,13 @@ nvm install {Version}
 # 检查 nvim 是否健康
 :checkhealth
 ```
+
+## tmux 安装配置
+
+```bash
+brew install tmux
+
+tmux new -s tmp # 新建 tmux session
+# 进入 tmux 后按快捷键：prefix+I（ctrl+b shift+i）
+# 会自动安装 tmux 插件
+```
