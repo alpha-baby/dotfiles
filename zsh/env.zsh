@@ -18,6 +18,19 @@ export LC_ALL=zh_CN.UTF-8
 # 如果是 centos 可以通过如下命令安装中文
 # yum install kde-l10n-Chinese
 
+# set brew env
+which "brew" >/dev/null 2>&1
+if [[ $? -ne 0 ]]; then
+    if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    elif [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+else
+    # home brew env install
+    eval "$(brew shellenv)"
+fi
+
 # g verison manager
 export GOROOT="${HOME}/.g/go"
 export PATH="${HOME}/.g/go/bin:$PATH"
@@ -50,17 +63,6 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export MYVIMRC='~/.config/nvim/init.vim'
 
-which "brew" >/dev/null 2>&1
-if [[ $? -ne 0 ]]; then
-    if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    elif [[ -f /opt/homebrew/bin/brew ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
-else
-    # home brew env install
-    eval "$(brew shellenv)"
-fi
 which "brew" >/dev/null 2>&1
 if [ $? -eq 0 ]; then
     # Add seemingly missing pkg-config path? Not sure why this is happening...
