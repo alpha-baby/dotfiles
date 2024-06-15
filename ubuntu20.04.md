@@ -51,7 +51,10 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ## linuxbrew(homebrew)
 
 ```bash
-brew install nvim trash-cli lsd
+brew install nvim \
+    trash-cli \
+    lsd \
+    autojump
 ```
 
 ## install nodejs
