@@ -43,10 +43,13 @@ sh install.sh
 > 参考 https://github.com/nvm-sh/nvm#installing-and-updating
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-or
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+nvm_install_script_url="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh"
+curl -o- $nvm_install_script_url | bash
+# or
+wget -qO- $nvm_install_script_url | bash
 ```
+
+一些极限情况下如果不能使用 nvm 那么可以手动下载 nodejs 的 release 包，手动解压安装的方式。[nodejs下载地址](https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/)
 
 ## linuxbrew(homebrew)
 

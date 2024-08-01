@@ -76,6 +76,8 @@ brew install   git \
 2. [g] golang多版本管理工具[官网](https://github.com/voidint/g)，安装脚本`curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash`
 3. [sdk] java多版本工具[官网](https://sdkman.io/)，安装脚本`curl -s "https://get.sdkman.io" | bash && source "$HOME/.sdkman/bin/sdkman-init.sh" && sdk version`
 
+一些极限情况下如果不能使用 nvm 那么可以手动下载 nodejs 的 release 包，手动解压安装的方式。[nodejs下载地址](https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/)
+
 ### config 
 
 #### 安装 neovim 插件管理器 vim-plug
