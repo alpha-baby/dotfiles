@@ -12,9 +12,36 @@ autoload -Uz _zi
 # examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
 zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
 
+
+# Fast-syntax-highlighting & autosuggestions
+# zsh plugins
+zi wait lucid for \
+    zdharma-continuum/zsh-unique-id \
+ atinit"zicompinit; zicdreplay" \
+    z-shell/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions
+
+# git plugins
+zi wait'1' lucid for \
+    OMZ::lib/git.zsh \
+    Fakerr/git-recall \
+    paulirish/git-open \
+    paulirish/git-recent \
+    davidosomething/git-my \
+    make"PREFIX=$ZPFX install" iwata/git-now \
+    make"PREFIX=$ZPFX" tj/git-extras \
+ atload"unalias grv g" \
+    OMZ::plugins/git/git.plugin.zsh
+
+# OMZ plugins
+zi wait'2' lucid for \
+    OMZ::plugins/golang/golang.plugin.zsh
+
 # 延迟加载
 zinit light romkatv/zsh-defer
-
 
 if [[ "$(uname)" == "Darwin" ]]; then
 
@@ -39,49 +66,6 @@ elif [[ "$(uname)" == "MINGW32_NT" ]]; then
     echo "windows NT"
 
 fi
-
-
-# Fast-syntax-highlighting & autosuggestions
-zi wait lucid for \
- atinit"zicompinit; zicdreplay" \
-    z-shell/fast-syntax-highlighting \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
- blockf \
-    zsh-users/zsh-completions
-
-# # lib/git.zsh is loaded mostly to stay in touch with the plugin (for the users)
-# # and for the themes 2 & 3 (lambda-mod-zsh-theme & lambda-gitster)
-zi wait lucid for \
-    zdharma-continuum/zsh-unique-id \
-    OMZ::lib/git.zsh \
-    OMZ::plugins/golang/golang.plugin.zsh \
- atload"unalias grv g" \
-    OMZ::plugins/git/git.plugin.zsh \
-    OMZP::docker
-
-# # A few wait'3' git extensions
-# zi as'null' wait'3' lucid for \
-#   sbin  Fakerr/git-recall \
-#   sbin  cloneopts paulirish/git-open \
-#   sbin  paulirish/git-recent \
-#   sbin  davidosomething/git-my \
-#   sbin  iwata/git-now \
-#   sbin atload'export _MENU_THEME=legacy' \
-#     arzzen/git-quick-stats \
-#   sbin'bin/git-dsf;bin/diff-so-fancy' \
-#     z-shell/zsh-diff-so-fancy \
-#   make'PREFIX=$ZPFX install' \
-#     tj/git-extras
-zi wait lucid for \
-  Fakerr/git-recall \
-  paulirish/git-open \
-  paulirish/git-recent \
-  davidosomething/git-my \
-  make"PREFIX=$ZPFX install" iwata/git-now \
-  make"PREFIX=$ZPFX" tj/git-extras
-
-zi light paulirish/git-open
 
 export NVM_DIR="${HOME}/.nvm"
 zsh-defer -c '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'  # This loads nvm

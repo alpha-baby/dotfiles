@@ -131,11 +131,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 
 " colorschech
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'connorholyday/vim-snazzy'
-Plug 'arcticicestudio/nord-vim'
-Plug 'theniceboy/vim-deus'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'KeitaNakamura/neodark.vim'
+"Plug 'connorholyday/vim-snazzy'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'theniceboy/vim-deus'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'joshdick/onedark.vim'
 " Treesitter
 Plug 'nvim-treesitter/playground'
@@ -147,14 +147,12 @@ Plug 'mhinz/vim-startify'
 " File navigation
 Plug 'nvim-tree/nvim-web-devicons' " optional
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Auto Complete
-"Plug 'Valloric/YouCompleteMe'
+Plug 'mikavilpas/yazi.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
-" Undo Tree
-Plug 'mbbill/undotree/'
-
+" " Undo Tree
+" Plug 'mbbill/undotree/'
+" 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
@@ -176,13 +174,6 @@ Plug 'vimwiki/vimwiki'
 " Bookmarks
 Plug 'kshenoy/vim-signature'
 Plug 'lambdalisue/suda.vim'
-" Other useful utilities
-"Plug 'terryma/vim-multiple-cursors'
-"Plug 'junegunn/goyo.vim' " distraction free writing mode
-"Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
-"Plug 'godlygeek/tabular' " type ;Tabularize /= to align the =
-"Plug 'gcmt/wildfire.vim' " in Visual mode, type i' to select all text in '', or type i) i] i} ip
-"Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
 " vim-plug 加入插件 defx, defx-icons
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -193,32 +184,44 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Dependencies
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'kana/vim-textobj-user'
-"Plug 'fadein/vim-FIGlet'
-" Use release branch (recommended)
+" code complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " terminal
 " https://zhuanlan.zhihu.com/p/102287909
 Plug 'skywind3000/vim-terminal-help'
 
+" cmdline config
+if has('nvim')
+  function! UpdateRemotePlugins(...)
+    " Needed to refresh runtime files
+    let &rtp=&rtp
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
+  Plug 'lambdalisue/nerdfont.vim'
+else
+  Plug 'gelguy/wilder.nvim'
+
+  " To use Python remote plugin features in Vim, can be skipped
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" debug plugins
+Plug 'Pocco81/DAPInstall.nvim' " help us install serveral debuffers
+Plug 'mfussenegger/nvim-dap'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
+
+
 call plug#end()
 
 
-"let g:SnazzyTransparent = 1
-"color snazzy
 syntax on
 colorscheme onedark
-let g:neodark#background = '#202020'
-let g:neodark#use_256color = 0 " default: 0
-let g:neodark#terminal_transparent = 0 " default: 0
-let g:neodark#solid_vertsplit = 1 " default: 0
-let g:lightline = {}
-let g:lightline.colorscheme = 'nord'
-" colorscheme nord
-" colorscheme dracula
 
 
 " 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置
@@ -244,9 +247,16 @@ require'nvim-treesitter.configs'.setup {
 EOF
 endif
 
+lua <<EOF
+vim.keymap.set("n", "<leader>-", function()
+  require("yazi").yazi()
+end)
+EOF
+noremap tt :Yazi toggle<cr>
+noremap tc :Yazi cwd<cr>
 
 " =======
-" ==================== nvim-treesitter ====================
+" ==================== nvim-tree ====================
 " =======
 if g:nvim_plugins_installation_completed == 1
 lua <<EOF
@@ -267,56 +277,17 @@ require'nvim-tree'.setup {
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 }
 EOF
 endif
 
-noremap tt :NvimTreeToggle<CR>
+"noremap tt :NvimTreeToggle<CR>
 
-
-"" ===
-"" === NERDTree
-"" ===
-"map tt :NERDTreeToggle<CR>
-"let NERDTreeMapOpenExpl = "e"
-""let NERDTreeMapUpdir = ""
-"" let NERDTreeMapUpdirKeepOpen = "l"
-"let NERDTreeMapOpenSplit = "b"
-"" let NERDTreeOpenVSplit = ""
-""let NERDTreeMapActivateNode = "o"
-""" let NERDTreeMapOpenInTab = ""
-""" let NERDTreeMapPreview = ""
-""let NERDTreeMapCloseDir = "n"
-""" let NERDTreeMapChangeRoot = "y"
-""" let g:NERDTreeHidden=0
-"
-"" ==
-"" == indentLine
-"" ==
-"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-"let g:indent_guides_enable_on_vim_startup = 1
-"" hi IndentGuidesOdd  ctermbg=white
-"" hi IndentGuidesEven ctermbg=lightgrey
-"
-"" ==
-"" == NERDTree-git
-"" ==
-"let g:NERDTreeIndicatorMapCustom = {
-"    \ "Modified"  : "✹",
-"    \ "Staged"    : "✚",
-"    \ "Untracked" : "✭",
-"    \ "Renamed"   : "➜",
-"    \ "Unmerged"  : "═",
-"    \ "Deleted"   : "✖",
-"    \ "Dirty"     : "✗",
-"    \ "Clean"     : "✔︎",
-"    \ "Unknown"   : "?"
-"    \ }
 
 " terminal-help
-let g:terminal_key = '<C-=>'
+let g:terminal_key = '<C-t>'
 "tnoremap <C-K> <c-\><c-n>"0pa
 
 " ==
@@ -326,23 +297,18 @@ let g:terminal_key = '<C-=>'
 let g:coc_global_extensions = [
     \ 'coc-json', 
     \ 'coc-git',
-	\ 'coc-snippets', 
+    \ 'coc-snippets',
     \ 'coc-vimlsp']
-" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
-" utf-8 byte sequence
-set encoding=utf-8
-" Some servers have issues with backup files, see #649
-"set nobackup
-"set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
+set updatetime=100
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
 set signcolumn=yes
 
+" 如下配置是使用 TAB 键来使用 coc 的补全, 多按几次 TAB 就往下翻后面的提示符号
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file
@@ -354,6 +320,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
+" 如下配置是使用回车来选中提示的符号
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
@@ -364,15 +331,17 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion
+" 原生的配置是使用 CTRL+SPACE 来在插入模式下呼出提示
+" 这里我在 nvim 中修改成了使用 CTRL+o 来呼出提示
 if has('nvim')
   inoremap <silent><expr> <c-o> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-"" Use `[g` and `]g` to navigate diagnostics
-"" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+" 使用快捷键来快速跳转到出错的地方，一般都是 LSP 分析出来有问题的地方
+" 原生配置是 '[g' 和 ']g' 这里我做了修改
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 "nmap <silent> [g <Plug>(coc-diagnostic-prev)
 "nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev) " 查找上一处报错的位置
@@ -387,7 +356,6 @@ nmap <silent> gr <Plug>(coc-references)      " 跳转到代码引用的地方
 " Use K to show documentation in preview window
 " <LEADER>+h 快速查看文档
 nnoremap <silent> <LEADER>h :call ShowDocumentation()<CR>
-"nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -399,7 +367,7 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor
 " 相同词或者变量高亮
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "" Symbol renaming
 "nmap <leader>rn <Plug>(coc-rename)
@@ -439,7 +407,7 @@ nmap <leader>aw  <Plug>(coc-codeaction-selected)
 "nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
 "xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 "nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
-"
+
 "" Run the Code Lens action on the current line
 "nmap <leader>cl  <Plug>(coc-codelens-action)
 "
@@ -472,16 +440,17 @@ nmap <leader>aw  <Plug>(coc-codeaction-selected)
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
 
-"" Add `:Fold` command to fold current buffer
-"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-"
-"" Add `:OR` command for organize imports of the current buffer
-"command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-"
+" Add `:Fold` command to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
 " Add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 "" Mappings for CoCList
 "" Show all diagnostics
@@ -515,4 +484,101 @@ if executable('clipboard-provider')
           \     },
           \ }
 endif
+
+" ==============
+" wilder
+" ==============
+autocmd CmdlineEnter * ++once call s:wilder_init() | call wilder#main#start()
+
+function! s:wilder_init() abort
+" Default keys
+call wilder#setup({
+      \ 'modes': [':', '/', '?'],
+      \ 'next_key': '<Tab>',
+      \ 'previous_key': '<S-Tab>',
+      \ 'accept_key': '<Down>',
+      \ 'reject_key': '<Up>',
+      \ })
+" For Neovim or Vim with yarp
+" For wild#cmdline_pipeline():
+"   'language'   : set to 'python' to use python
+"   'fuzzy'      : 0 - turns off fuzzy matching
+"                : 1 - turns on fuzzy matching
+"                : 2 - partial fuzzy matching (match does not have to begin with the same first letter)
+" For wild#python_search_pipeline():
+"   'pattern'    : can be set to wilder#python_fuzzy_delimiter_pattern() for stricter fuzzy matching
+"   'sorter'     : omit to get results in the order they appear in the buffer
+"   'engine'     : can be set to 're2' for performance, requires pyre2 to be installed
+"                : see :h wilder#python_search() for more details
+call wilder#set_option('pipeline', [
+      \   wilder#branch(
+      \     wilder#cmdline_pipeline({
+      \       'language': 'python',
+      \       'fuzzy': 1,
+      \     }),
+      \     wilder#python_search_pipeline({
+      \       'pattern': wilder#python_fuzzy_pattern(),
+      \       'sorter': wilder#python_difflib_sorter(),
+      \       'engine': 're',
+      \     }),
+      \     wilder#python_file_finder_pipeline({
+      \       'file_command': ['find', '.', '-type', 'f', '-printf', '%P\n'],
+      \       'dir_command': ['find', '.', '-type', 'd', '-printf', '%P\n'],
+      \       'filters': ['fuzzy_filter', 'difflib_sorter'],
+      \     }),
+      \     wilder#cmdline_pipeline(),
+      \     wilder#python_search_pipeline(),
+      \   ),
+      \ ])
+
+let s:highlighters = [
+        \ wilder#pcre2_highlighter(),
+        \ wilder#basic_highlighter(),
+        \ ]
+
+let s:scale = ['#f4468f', '#fd4a85', '#ff507a', '#ff566f', '#ff5e63',
+      \ '#ff6658', '#ff704e', '#ff7a45', '#ff843d', '#ff9036',
+      \ '#f89b31', '#efa72f', '#e6b32e', '#dcbe30', '#d2c934',
+      \ '#c8d43a', '#bfde43', '#b6e84e', '#aff05b']
+let s:gradient = map(s:scale, {i, fg -> wilder#make_hl(
+      \ 'WilderGradient' . i, 'Pmenu', [{}, {}, {'foreground': fg}]
+      \ )})
+
+let s:highlighters = [
+      \ wilder#pcre2_highlighter(),
+      \ wilder#basic_highlighter(),
+      \ ]
+
+let s:popupmenu_renderer = wilder#popupmenu_renderer(wilder#popupmenu_palette_theme({
+      \ 'highlights': {
+      \   'gradient': s:gradient,
+      \ },
+      \ 'highlighter': wilder#highlighter_with_gradient(s:highlighters),
+      \ 'border': 'rounded',
+      \ 'max_height': '75%',
+      \ 'min_height': 0,
+      \ 'prompt_position': 'bottom',
+      \ 'reverse': 0,
+      \ 'left': [
+      \   ' ', wilder#popupmenu_devicons(),
+      \ ],
+      \ 'right': [
+      \   ' ', wilder#popupmenu_scrollbar(),
+      \ ],
+      \ }))
+
+let s:wildmenu_renderer = wilder#wildmenu_renderer({
+      \ 'highlighter': s:highlighters,
+      \ 'separator': ' · ',
+      \ 'left': [' ', wilder#wildmenu_spinner(), ' '],
+      \ 'right': [' ', wilder#wildmenu_index()],
+      \ })
+
+call wilder#set_option('renderer', wilder#renderer_mux({
+      \ ':': s:popupmenu_renderer,
+      \ '/': s:wildmenu_renderer,
+      \ 'substitute': s:wildmenu_renderer,
+      \ }))
+
+endfunction
 

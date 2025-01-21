@@ -43,6 +43,6 @@
     "codeLens.enable": true,
     "list.previousKeymap": "<C-e>",
     "list.nextKeymap": "<C-d>",
-    "coc.preferences.formatOnSave": true,
+    "coc.preferences.formatOnSave": false,
     "coc.preferences.formatOnType": true
 }

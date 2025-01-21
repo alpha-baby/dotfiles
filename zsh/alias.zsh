@@ -13,6 +13,8 @@ if [ $? -eq 0 ]; then
     alias nv="nvim"
     alias snv="sudo nvim"
     export KUBE_EDITOR="nvim" # 
+    export EDITOR="nvim" # 会导致终端快捷键会转换成 vi-mode
+    bindkey -e # 强制把快捷键模式改成 emacs 模式
 else
     echo "not found nvim; maybe you call install it. like: brew install nvim"
 fi

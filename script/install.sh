@@ -14,6 +14,32 @@ if [[ "$_new_version" = "$_installed_version" ]]; then
     return
 fi
 
+# common install or setpu config files
+
+# ------------------
+# --- yazi ---------
+# ------------------
+__intall_yazi() {
+    which "yazi" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        ya pack -u
+        echo "success upgrade yazi plugins!!!"
+    else
+        echo "maybe you should install yazi"
+        echo "brew install yazi"
+    fi
+}
+# setup config files
+if [[ ! -d "${HOME}/.config/yazi" ]]; then
+    mkdir -p "${HOME}/.config/yazi/" 
+    ln -sf "${HOME}/dotfiles/yazi/init.lua" "${HOME}/.config/yazi/"
+    ln -sf "${HOME}/dotfiles/yazi/theme.toml" "${HOME}/.config/yazi/"
+    ln -sf "${HOME}/dotfiles/yazi/package.toml" "${HOME}/.config/yazi/"
+    ln -sf "${HOME}/dotfiles/yazi/keymap.toml" "${HOME}/.config/yazi/"
+    ln -sf "${HOME}/dotfiles/yazi/yazi.toml" "${HOME}/.config/yazi/"
+    __intall_yazi
+fi
+
 echo "POWERLEVEL9K_INSTANT_PROMPT:" ${POWERLEVEL9K_INSTANT_PROMPT}
 # 根据系统版本，每次运行 zsh 的时候自动运行安装脚本
 echo "begining execute install script for $(uname)"
