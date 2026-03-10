@@ -77,26 +77,12 @@ noremap J 5h
 noremap K 7j
 noremap L 5l
 
-
 noremap h i
 noremap H I
 
 noremap = nzz
 noremap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR>
-map s <nop>
-" 保存和推出快捷键
-map <C-s> :w<CR>
-" 插入模式下 ctrl + s 保存
-imap <C-q> <Esc> " in insert mode, use CTRL + e replace CTRL + [, means ESC
-map <C-q> :q<CR>
-map U <C-r>
-"map <C-r> :source $MYVIMRC<CR>
-"map ; :
-map S :w<CR>
-map Q :q<CR>
-map R :source $MYVIMRC<CR>
-map <C-f> :?
 
 " 分屏快捷键绑定
 map sl :set splitright<CR>:vsplit<CR>
@@ -113,12 +99,26 @@ map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize+5<CR>
 map <right> :vertical resize-5<CR>
-map <Esc> :w<CR>  " esc 映设为保存
 " 快速调整tab 切换
 map tu :tabe<CR>       " 新增一个 tab
 map tl :+tabnext<CR>   " 移动到右边的一个 tab
 map tj :-tabnext<CR>   " 移动到左边的一个 tab
 map tc :tabc<CR>       " 关闭当前的 tab
+
+" 保存和推出快捷键
+map s <nop>
+map <C-s> :w<CR>
+" 插入模式下 ctrl + s 保存
+imap <C-q> <Esc> " in insert mode, use CTRL + e replace CTRL + [, means ESC
+map <C-q> :q<CR>
+map U <C-r>
+"map <C-r> :source $MYVIMRC<CR>
+"map ; :
+map S :w<CR>
+map Q :q<CR>
+map R :source $MYVIMRC<CR>
+map <C-f> :?
+map <Esc> :w<CR>  " esc 映设为保存
 
 "
 " ==
@@ -139,7 +139,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 " Treesitter
 Plug 'nvim-treesitter/playground'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}
 " devlop tool
 " 默认不安装 vim go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

@@ -44,7 +44,7 @@ export PATH="${HOME}/dotfiles/nvim:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
-export GOPROXY="https://goproxy.io,https://mirrors.aliyun.com/goproxy,https://goproxy.cn,direct"
+export GOPROXY="https://goproxy.cn,https://goproxy.io,https://mirrors.aliyun.com/goproxy,direct"
 
 # homebrew exe path
 export PATH=/usr/local/opt:${PATH}
